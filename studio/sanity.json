@@ -1,7 +1,8 @@
 {
   "root": true,
   "project": {
-    "name": "Domaincord"
+    "name": "Domaincord",
+    "basePath": "/"
   },
   "api": {
     "projectId": "8usn3m9a",
@@ -17,7 +18,8 @@
     "dashboard-widget-structure-menu",
     "dashboard-widget-document-list",
     "dashboard-widget-netlify",
-    "@sanity/studio-hints"
+    "@sanity/studio-hints",
+    "asset-source-cloudinary"
   ],
   "parts": [
     {

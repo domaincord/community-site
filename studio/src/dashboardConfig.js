@@ -14,7 +14,7 @@ export default {
                 {
                   buildHookId: '5eac5da90fc184744a452481',
                   title: 'Sanity Studio',
-                  name: 'sanity-gatsby-blog-studio-jvoe98r8',
+                  name: 'domaincord-cms',
                   apiId: 'b708198e-a27c-409d-942d-80ff3f4b5394'
                 },
                 {
