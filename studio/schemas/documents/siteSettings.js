@@ -10,6 +10,12 @@ export default {
       title: 'Title'
     },
     {
+      name: 'tagline',
+      type: 'string',
+      title: 'Slogan',
+      description: 'Your site\'s slogan'
+    },
+    {
       name: 'description',
       type: 'text',
       title: 'Description',

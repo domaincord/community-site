@@ -7,7 +7,10 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 // document schemas
 import author from './documents/author'
 import category from './documents/category'
+import tag from './documents/tag'
 import post from './documents/post'
+import partner from './documents/partner'
+import wikiPage from './documents/wikiPage'
 import siteSettings from './documents/siteSettings'
 
 // Object types
@@ -28,12 +31,15 @@ export default createSchema({
     // in the studio.
     siteSettings,
     post,
+    partner,
     category,
+    tag,
     author,
     mainImage,
     authorReference,
     bodyPortableText,
     bioPortableText,
+    wikiPage,
     excerptPortableText
 
     // When added to this list, object types can be used as
