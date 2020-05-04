@@ -1,7 +1,7 @@
 export default {
-  name: 'tag',
+  name: 'video',
   type: 'document',
-  title: 'Tag',
+  title: 'Videos',
   fields: [
     {
       name: 'title',
@@ -9,9 +9,9 @@ export default {
       title: 'Title'
     },
     {
-      name: 'description',
-      type: 'text',
-      title: 'Description'
+      name: 'url',
+      type: 'url',
+      title: 'Video URL'
     }
   ]
 }

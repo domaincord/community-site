@@ -28,7 +28,8 @@
     "react-dom": "^16.13.1",
     "sanity-plugin-asset-source-cloudinary": "^0.1.0",
     "sanity-plugin-dashboard-widget-document-list": "^0.0.10",
-    "sanity-plugin-dashboard-widget-netlify": "^1.0.1"
+    "sanity-plugin-dashboard-widget-netlify": "^1.0.1",
+    "sanity-plugin-seo-tools": "^1.0.6"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",

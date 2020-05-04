@@ -12,6 +12,8 @@ import post from './documents/post'
 import partner from './documents/partner'
 import wikiPage from './documents/wikiPage'
 import siteSettings from './documents/siteSettings'
+import menu from './documents/menu'
+import video from './documents/video'
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
@@ -40,7 +42,9 @@ export default createSchema({
     bodyPortableText,
     bioPortableText,
     wikiPage,
-    excerptPortableText
+    excerptPortableText,
+    menu,
+    video
 
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
