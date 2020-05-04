@@ -6,7 +6,7 @@
   "scripts": {
     "build": "gatsby build",
     "clean-cache": "gatsby clean",
-    "dev": "yarn clean-cache && gatsby develop",
+    "dev": "npm run clean-cache && gatsby develop",
     "lint": "eslint .",
     "format": "prettier --write \"{gatsby-*.js,src/**/*.js,content/**/*}\"",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
