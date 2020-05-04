@@ -24,29 +24,29 @@ import authorReference from './objects/authorReference'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
-  // We name our schema
-  name: 'blog',
-  // Then proceed to concatenate our our document type
-  // to the ones provided by any plugins that are installed
-  types: schemaTypes.concat([
-    // The following are document types which will appear
-    // in the studio.
-    siteSettings,
-    post,
-    partner,
-    category,
-    tag,
-    author,
-    mainImage,
-    authorReference,
-    bodyPortableText,
-    bioPortableText,
-    wikiPage,
-    excerptPortableText,
-    menu,
-    video
+	// We name our schema
+	name: 'blog',
+	// Then proceed to concatenate our our document type
+	// to the ones provided by any plugins that are installed
+	types: schemaTypes.concat([
+		// The following are document types which will appear
+		// in the studio.
+		siteSettings,
+		post,
+		partner,
+		category,
+		tag,
+		author,
+		mainImage,
+		authorReference,
+		bodyPortableText,
+		bioPortableText,
+		wikiPage,
+		excerptPortableText,
+		menu,
+		video
 
-    // When added to this list, object types can be used as
-    // { type: 'typename' } in other document schemas
-  ])
+		// When added to this list, object types can be used as
+		// { type: 'typename' } in other document schemas
+	])
 })
