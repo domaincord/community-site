@@ -5,48 +5,48 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // document schemas
-import author from './documents/author'
 import category from './documents/category'
-import tag from './documents/tag'
+import feature from './documents/feature'
+import mainImage from './documents/mainImage'
+import page from './documents/page'
 import post from './documents/post'
-import partner from './documents/partner'
-import wikiPage from './documents/wikiPage'
+import profile from './documents/profile'
+import project from './documents/project'
 import siteSettings from './documents/siteSettings'
-import menu from './documents/menu'
 import video from './documents/video'
 
 // Object types
-import bodyPortableText from './objects/bodyPortableText'
-import bioPortableText from './objects/bioPortableText'
-import excerptPortableText from './objects/excerptPortableText'
-import mainImage from './objects/mainImage'
-import authorReference from './objects/authorReference'
+import accessibleImage from './objects/accessibleImage'
+import listItem from './objects/listItem'
+import menuItem from './objects/menuItem'
+import pageSection from './objects/pageSection'
+import socialLink from './objects/socialLink'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
-	// We name our schema
-	name: 'blog',
-	// Then proceed to concatenate our our document type
-	// to the ones provided by any plugins that are installed
-	types: schemaTypes.concat([
-		// The following are document types which will appear
-		// in the studio.
-		siteSettings,
-		post,
-		partner,
-		category,
-		tag,
-		author,
-		mainImage,
-		authorReference,
-		bodyPortableText,
-		bioPortableText,
-		wikiPage,
-		excerptPortableText,
-		menu,
-		video
+  // We name our schema
+  name: 'domaincord-org',
+  // Then proceed to concatenate our our document type
+  // to the ones provided by any plugins that are installed
+  types: schemaTypes.concat([
+    // The following are document types which will appear
+    // in the studio.
+    accessibleImage,
+    category,
+    feature,
+    listItem,
+    mainImage,
+    menuItem,
+    page,
+    pageSection,
+    post,
+    profile,
+    project,
+    siteSettings,
+    socialLink,
+    video
 
-		// When added to this list, object types can be used as
-		// { type: 'typename' } in other document schemas
-	])
+    // When added to this list, object types can be used as
+    // { type: 'typename' } in other document schemas
+  ])
 })

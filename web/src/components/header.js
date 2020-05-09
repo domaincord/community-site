@@ -1,30 +1,59 @@
-import { Link } from 'gatsby'
 import React from 'react'
+import { Link } from 'gatsby'
 import Icon from './icon'
-import { cn } from '../lib/helpers'
+import styled from 'styled-components'
+import Logo from './logo'
 
-import styles from './header.module.css'
+const StyledHeader = styled.header`
+  width: 100%;
+  height: 70px;
+  background-color: #161616;
+`
 
-const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
-	<div className={styles.root}>
-		<div className={styles.wrapper}>
-			<div className={styles.branding}>
-				<Link to="/">{siteTitle}</Link>
-			</div>
+const Wrapper = styled.div`
+  width: 100%;
+  max-width: 1170px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
 
-			<button className={styles.toggleNavButton} onClick={showNav ? onHideNav : onShowNav}>
-				<Icon symbol="hamburger" />
-			</button>
+const BrandWrap = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+`
 
-			<nav className={cn(styles.nav, showNav && styles.showNav)}>
-				<ul>
-					<li>
-						<Link to="/archive/">Archive</Link>
-					</li>
-				</ul>
-			</nav>
-		</div>
-	</div>
+const NavLink = styled(Link)`
+  text-decoration: none;
+  color: white;
+  padding: 15px 20px;
+
+  &:hover {
+    color: #778ad4;
+  }
+`
+
+const Header = ({ onHideNav, onShowNav, showNav, siteTitle, menu }) => (
+  <StyledHeader>
+    <Wrapper>
+      <BrandWrap>
+        <Logo siteTitle={siteTitle} />
+        <nav>
+          {menu.map(link => (
+            <NavLink key={link._key} to={link.path}>
+              {link.title}
+            </NavLink>
+          ))}
+        </nav>
+      </BrandWrap>
+      <button onClick={showNav ? onHideNav : onShowNav}>
+        <Icon symbol="hamburger" />
+      </button>
+    </Wrapper>
+  </StyledHeader>
 )
 
 export default Header

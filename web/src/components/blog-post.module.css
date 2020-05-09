@@ -7,7 +7,7 @@
   composes: responsiveTitle1 from './typography.module.css';
 }
 
-.mainImage {
+.accessibleImage {
   display: block;
   position: relative;
   background: var(--color-very-light-gray);

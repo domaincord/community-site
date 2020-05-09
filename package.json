@@ -8,7 +8,7 @@
     "format": "lerna run format",
     "build-studio": "lerna bootstrap && cd studio && npm run build",
     "build-web": "lerna bootstrap && cd web && npm run build",
-    "deploy": "cd studio && sanity deploy",
+    "deploy": "cd studio && sanity deploy && npm run graphql-deploy",
     "lint": "lerna run lint",
     "postinstall": "lerna bootstrap",
     "test": "echo \"Error: no test specified\" && exit 1"
