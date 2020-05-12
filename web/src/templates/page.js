@@ -5,6 +5,7 @@ import PageSection from '../components/PageSection'
 import Hero from '../components/Hero'
 import PortableText from '../components/portableText'
 import Wrapper from '../components/Wrapper'
+import SEO from '../components/seo'
 
 const Page = ({ data }) => {
   const page = data.page
@@ -29,6 +30,7 @@ const Page = ({ data }) => {
   return (
     <Layout>
       <Hero {...heroData} />
+      <SEO title={page.seo.seo_title} description={page.seo.meta_description} />
       <Wrapper>
         <h1 style={{ alignSelf: 'center', fontWeight: 'bold', fontSize: '2.5rem' }}>
           {data.page.heading}
