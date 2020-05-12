@@ -86,11 +86,15 @@ const Header = ({ showDrawer, hideDrawer, isDrawerOpen, siteTitle, menu }: Heade
         <Drawer>
             <CloseButton onClick={buttonClicked}>Close Menu</CloseButton>
             <nav>
-            {menu.map(link => (
-                <NavLink key={link._key} to={link.path}>
-                  {link.title}
-                </NavLink>
-              ))}
+            { menu.map(link => (
+                link.isInternal
+                  ? (<InternalLink key={link._key} to={link.path}>
+                      {link.title}
+                    </InternalLink>)
+                  : (<ExternalLink key={link._key} href={link.path}>
+                      {link.title}
+                    </ExternalLink>)
+              )) }
               <DiscordButton style={{marginTop: 25}} />
             </nav>
         </Drawer>
