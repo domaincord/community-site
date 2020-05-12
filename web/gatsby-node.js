@@ -33,11 +33,11 @@ const createPostPages = async (graphql, actions) => {
       const { id, slug = {} } = edge.node
       const path = `/blog/${slug.current}/`
 
-      createPage({
-        path,
-        component: require.resolve('./src/templates/post.js'),
-        context: { id }
-      })
+      // createPage({
+      //   path,
+      //   component: require.resolve('./src/templates/post.js'),
+      //   context: { id }
+      // })
     })
 }
 
@@ -98,11 +98,11 @@ const createProfilePages = async (graphql, actions) => {
     .forEach((edge) => {
       const { _id: id, slug, profileType } = edge.node
 
-      createPage({
-        path: `/${profileType}/${slug.current ? slug.current : id}`,
-        component: require.resolve('./src/templates/profile.js'),
-        context: { id }
-      })
+      // createPage({
+      //   path: `/${profileType}/${slug.current ? slug.current : id}`,
+      //   component: require.resolve('./src/templates/profile.js'),
+      //   context: { id }
+      // })
     })
 }
 
