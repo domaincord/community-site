@@ -17,6 +17,10 @@ export default {
           {
             title: 'Wiki Page',
             value: 'wiki'
+          },
+          {
+            title: 'Resource',
+            value: 'resources'
           }
         ]
       }

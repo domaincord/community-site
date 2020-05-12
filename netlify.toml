@@ -3,6 +3,11 @@
   NPM_VERSION = "6"
 
 [[redirects]]
-  from = "/*"
-  to = "/"
-  status = 200
+  from = "/join"
+  to = "https://discord.gg/239EP7G"
+  status = 302
+
+[[redirects]]
+  from = "/admin"
+  to = "https://domaincord.sanity.com/"
+  status = 301

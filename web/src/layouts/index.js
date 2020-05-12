@@ -3,7 +3,6 @@ import Header from '../components/header'
 import '../styles/layout.css'
 import styles from './layout.module.css'
 import { graphql, StaticQuery } from 'gatsby'
-import Helmet from 'react-helmet'
 
 const query = graphql`
   query SiteTitleQuery {
@@ -21,13 +20,13 @@ const query = graphql`
 `
 
 const Layout = ({ children }) => {
-  const [showNav, setShowNav] = useState(false)
+  const [active, setActive] = useState(false)
 
-  function handleShowNav() {
-    setShowNav(true)
+  const handleShowNav = () => {
+    setActive(true)
   }
-  function handleHideNav() {
-    setShowNav(false)
+  const handleHideNav = () => {
+    setActive(false)
   }
 
   return (
@@ -44,9 +43,9 @@ const Layout = ({ children }) => {
             <Header
               siteTitle={data.site.title}
               menu={data.site.primaryMenu}
-              onHideNav={handleHideNav}
-              onShowNav={handleShowNav}
-              showNav={showNav}
+              hideDrawer={handleHideNav}
+              showDrawer={handleShowNav}
+              isDrawerOpen={active}
             />
             <div className={styles.content}>{children}</div>
             <footer className={styles.footer}>

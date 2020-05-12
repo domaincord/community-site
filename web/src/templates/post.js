@@ -1,11 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
-import BlogPost from '../components/blog-post'
 import SEO from '../components/seo'
 import { toPlainText } from '../lib/helpers'
-import Layout from '../layouts/'
+import Layout from '../layouts'
+import Wrapper from '../components/Wrapper'
 
 export const query = graphql`
   query BlogPostTemplateQuery($id: String!) {
@@ -65,9 +64,9 @@ const BlogPostTemplate = props => {
       )}
 
       {errors && (
-        <Container>
+        <Wrapper>
           <GraphQLErrorList errors={errors} />
-        </Container>
+        </Wrapper>
       )}
 
       {post && <BlogPost {...post} />}

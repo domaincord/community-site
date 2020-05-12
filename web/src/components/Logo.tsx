@@ -3,14 +3,12 @@ import { graphql, StaticQuery, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 
-const StyledLink = styled(Link)`
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  text-decoration: none;
-`
+interface LogoModel {
+  siteTitle: string
+  showWordMark: boolean
+}
 
-const Logo = ({ siteTitle, showWordMark = false }) => (
+const Logo = ({ siteTitle, showWordMark = false }: LogoModel) => (
   <StaticQuery
     query={graphql`
       {
@@ -39,5 +37,14 @@ const Logo = ({ siteTitle, showWordMark = false }) => (
     )}
   />
 )
+
+Logo.defaultProps = {} as Partial<LogoModel>
+
+const StyledLink = styled(Link)`
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  text-decoration: none;
+`
 
 export default Logo

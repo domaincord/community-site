@@ -1,4 +1,4 @@
-import client from '@sanity/base/client'
+import client from 'part:@sanity/base/client'
 
 function titleCase(str) {
   str = str.toLowerCase().split(' ')
@@ -41,7 +41,7 @@ export default {
       title: 'Item Style',
       type: 'string',
       options: {
-        list: ['plain', 'card']
+        list: ['plain', 'card', 'accordion', 'timeline']
       }
     }
   ],

@@ -1,12 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../layouts/'
-import PageSection from '../components/page-section'
-import Hero from '../components/hero'
-import Helmet from 'react-helmet'
+import PageSection from '../components/PageSection'
+import Hero from '../components/Hero'
+import PortableText from '../components/portableText'
+import Wrapper from '../components/Wrapper'
 
-const Page = ({ data }) => {
+const Page = ({data}) => {
   const page = data.page
+  const sections = data.page.sections
   console.log(page)
 
   const heroData = {
@@ -15,14 +17,22 @@ const Page = ({ data }) => {
     media: page.heroMedia,
     mediaPosition: page.heroMediaPosition,
     cta: page.heroCta,
-    background: page.heroBgImage ? `url(${page.heroBgImage.asset.url})` : '#7316a3'
+    background: page.heroBgImage ? {
+      backgroundImage: `url(${page.heroBgImage.asset.fluid.src})`
+    } : {
+      backgroundColor: '#7316a3'
+    }
   }
 
   return (
     <Layout>
       <Hero {...heroData} />
-      {page.sections.map(section => (
-        <PageSection key={section._key} data={section} />
+      <Wrapper>
+        <h1 style={{alignSelf: 'center', fontWeight: 'bold', fontSize: '2.5rem'}}>{data.page.heading}</h1>
+        <PortableText blocks={data.page._rawContent} />
+      </Wrapper>
+      {sections.map(section => (
+        <PageSection key={section._key} {...section} />
       ))}
     </Layout>
   )
@@ -31,11 +41,32 @@ const Page = ({ data }) => {
 export const query = graphql`
   query PageQuery($id: String!) {
     page: sanityPage(_id: { eq: $id }) {
-      _rawContent
       heroTitle
       heroSubtitle
+      heroCta {
+          path
+          title
+        }
+        heroBgImage {
+          asset {
+            fluid(maxWidth: 2560) {
+              src
+            }
+          }
+        }
+        heroMedia {
+          ... on SanityMainImage {
+            _key
+            _type
+          }
+          ... on SanityVideo {
+            id
+          }
+        }
+        heroMediaPosition
       id
       path
+      _rawContent(resolveReferences: {maxDepth: 10})
       seo {
         seo_title
         meta_description
@@ -55,12 +86,16 @@ export const query = graphql`
           }
           itemStyle
           docItem {
-            ... on SanityPost {
+            ... on SanityFeature {
+              title
               _id
+              _rawDescription
             }
           }
         }
       }
+      _rawContent(resolveReferences:{maxDepth: 10})
+      heading
     }
   }
 `
