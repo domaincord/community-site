@@ -20,9 +20,9 @@ export const query = graphql`
       title
       image {
         asset {
-            fluid(maxWidth: 1170) {
-              ...GatsbySanityImageFluid
-            }
+          fluid(maxWidth: 1170) {
+            ...GatsbySanityImageFluid
+          }
         }
       }
       tags

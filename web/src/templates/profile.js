@@ -1,11 +1,11 @@
 import React from 'react'
-import {graphql} from 'gatsby'
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import Layout from '../layouts/'
 import Wrapper from '../components/Wrapper'
 import PortableText from '../components/portableText'
 
-const Profile = ({data}) => {
+const Profile = ({ data }) => {
   const profile = data.profile
   console.log(profile)
 
@@ -13,8 +13,8 @@ const Profile = ({data}) => {
     <Layout>
       <Wrapper>
         <h1>{profile.title}</h1>
-        { profile._rawDescription ? <PortableText blocks={profile._rawDescription} /> : null }
-        { profile._rawContent ? <PortableText blocks={profile._rawContent} /> : null }
+        {profile._rawDescription ? <PortableText blocks={profile._rawDescription} /> : null}
+        {profile._rawContent ? <PortableText blocks={profile._rawContent} /> : null}
       </Wrapper>
     </Layout>
   )

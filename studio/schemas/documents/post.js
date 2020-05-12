@@ -1,4 +1,3 @@
-
 export default {
   name: 'post',
   type: 'document',
@@ -53,7 +52,7 @@ export default {
       name: 'description',
       type: 'array',
       title: 'Description',
-      of: [{type: 'block'}],
+      of: [{ type: 'block' }],
       styles: []
     },
     {
@@ -83,7 +82,7 @@ export default {
       name: 'tags',
       type: 'array',
       title: 'Tags',
-      of: [{type: 'string'}],
+      of: [{ type: 'string' }],
       options: {
         layout: 'tags'
       }
@@ -92,13 +91,13 @@ export default {
       name: 'content',
       type: 'array',
       title: 'Content',
-      of: [{type: 'block'}]
+      of: [{ type: 'block' }]
     },
     {
       title: 'Video',
       name: 'video',
       type: 'reference',
-      to: [{type: 'video'}]
+      to: [{ type: 'video' }]
     },
     {
       name: 'seo',
@@ -106,21 +105,21 @@ export default {
       type: 'seo-tools', // use seo-tools type
       options: {
         baseUrl: 'https://domaincord.org/', // (REQUIRED) This is the baseUrl for your site
-        slug (doc) {
+        slug(doc) {
           // (REQUIRED) a function to return the sug of the current page, which will be appended to the baseUrl
           return doc.slug.current
         },
         fetchRemote: true, // Can be set to false to disable fetching the remote source (you will need to pass the content helpers for analysis)
-        content (doc) {
+        content(doc) {
           return 'simple html representation of your doc' // (OPTIONAL) If your site is generated after Sanity content updates you can use this for better real time feedback
         },
-        title (doc) {
+        title(doc) {
           return 'page title' // (OPTIONAL) return page title otherwise inferred from scrape
         },
-        description (doc) {
+        description(doc) {
           return 'page description' // (OPTIONAL) return page description otherwise inferred from scrape
         },
-        locale (doc) {
+        locale(doc) {
           return 'page locale' // (OPTIONAL) return page locale otherwise inferred from scrape
         },
         contentSelector: 'body' // (OPTIONAL) option to finetune where Yoast will look for the content. (only applicable for scraping without content function)
@@ -165,7 +164,7 @@ export default {
       media: 'accessibleImage',
       postType: 'postType'
     },
-    prepare ({title = 'No title', publishedAt, slug = {}, media, postType}) {
+    prepare({ title = 'No title', publishedAt, slug = {}, media, postType }) {
       const path = `/${postType}/${slug.current}/`
       return {
         title,

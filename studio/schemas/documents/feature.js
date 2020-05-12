@@ -29,7 +29,7 @@ export default {
       name: 'description',
       type: 'array',
       title: 'Description',
-      of: [{type: 'block'}],
+      of: [{ type: 'block' }],
       styles: []
     },
     {

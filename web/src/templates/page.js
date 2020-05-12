@@ -6,7 +6,7 @@ import Hero from '../components/Hero'
 import PortableText from '../components/portableText'
 import Wrapper from '../components/Wrapper'
 
-const Page = ({data}) => {
+const Page = ({ data }) => {
   const page = data.page
   const sections = data.page.sections
   console.log(page)
@@ -17,18 +17,22 @@ const Page = ({data}) => {
     media: page.heroMedia,
     mediaPosition: page.heroMediaPosition,
     cta: page.heroCta,
-    background: page.heroBgImage ? {
-      backgroundImage: `url(${page.heroBgImage.asset.fluid.src})`
-    } : {
-      backgroundColor: '#7316a3'
-    }
+    background: page.heroBgImage
+      ? {
+          backgroundImage: `url(${page.heroBgImage.asset.fluid.src})`
+        }
+      : {
+          backgroundColor: '#7316a3'
+        }
   }
 
   return (
     <Layout>
       <Hero {...heroData} />
       <Wrapper>
-        <h1 style={{alignSelf: 'center', fontWeight: 'bold', fontSize: '2.5rem'}}>{data.page.heading}</h1>
+        <h1 style={{ alignSelf: 'center', fontWeight: 'bold', fontSize: '2.5rem' }}>
+          {data.page.heading}
+        </h1>
         <PortableText blocks={data.page._rawContent} />
       </Wrapper>
       {sections.map(section => (
@@ -44,29 +48,29 @@ export const query = graphql`
       heroTitle
       heroSubtitle
       heroCta {
-          path
-          title
-        }
-        heroBgImage {
-          asset {
-            fluid(maxWidth: 2560) {
-              src
-            }
+        path
+        title
+      }
+      heroBgImage {
+        asset {
+          fluid(maxWidth: 2560) {
+            src
           }
         }
-        heroMedia {
-          ... on SanityMainImage {
-            _key
-            _type
-          }
-          ... on SanityVideo {
-            id
-          }
+      }
+      heroMedia {
+        ... on SanityMainImage {
+          _key
+          _type
         }
-        heroMediaPosition
+        ... on SanityVideo {
+          id
+        }
+      }
+      heroMediaPosition
       id
       path
-      _rawContent(resolveReferences: {maxDepth: 10})
+      _rawContent(resolveReferences: { maxDepth: 10 })
       seo {
         seo_title
         meta_description
@@ -94,7 +98,7 @@ export const query = graphql`
           }
         }
       }
-      _rawContent(resolveReferences:{maxDepth: 10})
+      _rawContent(resolveReferences: { maxDepth: 10 })
       heading
     }
   }

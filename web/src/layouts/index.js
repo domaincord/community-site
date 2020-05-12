@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import Header from '../components/header'
+import React, {useState} from 'react'
+import Header from '../components/Header.tsx'
 import '../styles/layout.css'
 import styles from './layout.module.css'
-import { graphql, StaticQuery } from 'gatsby'
+import {graphql, StaticQuery} from 'gatsby'
 
 const query = graphql`
   query SiteTitleQuery {
@@ -19,7 +19,7 @@ const query = graphql`
   }
 `
 
-const Layout = ({ children }) => {
+const Layout = ({children}) => {
   const [active, setActive] = useState(false)
 
   const handleShowNav = () => {
@@ -52,9 +52,9 @@ const Layout = ({ children }) => {
               <div className={styles.footerWrapper}>
                 <div className={styles.siteInfo}>
                   &copy; {new Date().getFullYear()}, Built with{' '}
-                  <a href="https://www.sanity.io">Sanity</a> &amp;
+                  <a href='https://www.sanity.io'>Sanity</a> &amp;
                   {` `}
-                  <a href="https://www.gatsbyjs.org">Gatsby</a>
+                  <a href='https://www.gatsbyjs.org'>Gatsby</a>
                 </div>
               </div>
             </footer>

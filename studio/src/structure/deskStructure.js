@@ -75,10 +75,7 @@ export default () =>
                 .title('Projects')
                 .icon(MdDescription)
                 .schemaType('project')
-                .child(
-                  S.documentTypeList('project')
-                    .title('Projects')
-                ),
+                .child(S.documentTypeList('project').title('Projects')),
               S.listItem()
                 .title('Benefits')
                 .icon(MdDescription)

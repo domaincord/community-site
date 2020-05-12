@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
-import discordLogo from '../images/Discord-Logo-White.svg'
+import DiscordLogo from '../images/DiscordLogo.js'
 
 interface DiscordButtonModel {
   style: object
@@ -21,8 +21,8 @@ const DiscordButton = ({style}: DiscordButtonModel) => {
   }, [])
 
   return (
-    <Button href="/discord" style={style}>
-      <img src={discordLogo} alt="discord logo" />
+    <Button href="/join" style={style}>
+      <DiscordLogo />
       <TextGroup>
         <strong style={{ fontSize: 14 }}>Join the Discord</strong>
         { memberCount ? <span style={{ fontSize: 12 }}>{memberCount} members</span> : null }
@@ -49,7 +49,8 @@ const Button = styled.a`
     background-color: #5162a0;
   }
 
-  img {
+  svg {
+    fill: white;
     width: 30px;
     height: 30px;
     margin-left: 5px;

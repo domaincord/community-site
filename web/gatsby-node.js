@@ -41,7 +41,7 @@ const createPostPages = async (graphql, actions) => {
     })
 }
 
-const createSanityPages  = async (graphql, actions) => {
+const createSanityPages = async (graphql, actions) => {
   const { createPage } = actions
   const result = await graphql(`
     {
@@ -60,16 +60,15 @@ const createSanityPages  = async (graphql, actions) => {
 
   const pageEdges = (result.data.allSanityPage || {}).edges || []
 
-  pageEdges
-    .forEach((edge) => {
-      const { _id: id, path } = edge.node
+  pageEdges.forEach(edge => {
+    const { _id: id, path } = edge.node
 
-      createPage({
-        path,
-        component: require.resolve('./src/templates/page.js'),
-        context: { id }
-      })
+    createPage({
+      path,
+      component: require.resolve('./src/templates/page.js'),
+      context: { id }
     })
+  })
 }
 
 const createProfilePages = async (graphql, actions) => {
@@ -94,16 +93,15 @@ const createProfilePages = async (graphql, actions) => {
 
   const profileEdges = (result.data.allSanityProfile || {}).edges || []
 
-  profileEdges
-    .forEach((edge) => {
-      const { _id: id, slug, profileType } = edge.node
+  profileEdges.forEach(edge => {
+    const { _id: id, slug, profileType } = edge.node
 
-      // createPage({
-      //   path: `/${profileType}/${slug.current ? slug.current : id}`,
-      //   component: require.resolve('./src/templates/profile.js'),
-      //   context: { id }
-      // })
-    })
+    // createPage({
+    //   path: `/${profileType}/${slug.current ? slug.current : id}`,
+    //   component: require.resolve('./src/templates/profile.js'),
+    //   context: { id }
+    // })
+  })
 }
 
 exports.createPages = async ({ graphql, actions }) => {
