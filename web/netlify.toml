@@ -8,6 +8,11 @@
   status = 302
 
 [[redirects]]
+  from = "/wiki"
+  to = "https://www.notion.so/domaincord/Domaincord-Wiki-f58cbb7accca437089037ea6bbf68c01"
+  status = 302
+
+[[redirects]]
   from = "/admin"
   to = "https://domaincord.sanity.com/"
   status = 301

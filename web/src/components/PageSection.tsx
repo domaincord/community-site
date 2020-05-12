@@ -8,11 +8,10 @@ import Wrapper from './Wrapper'
 // }
 
 const PageSection = props => {
-    const { fullWidth, heading, items} = props
+    const { fullWidth, heading, items, itemsPerRow} = props
 
     const StyledSection = styled.section`
       width: 100%;
-      min-height: 80vh;
       margin: 0 auto;
       max-width: ${fullWidth ? '100%' : '1170px'};
       display: flex;
@@ -30,12 +29,13 @@ const PageSection = props => {
     const CardGroup = styled.div`
       display: flex;
       flex-flow: row wrap;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
     `
 
     const ContentBlock = styled.div`
-      width: calc((100%) / 3);
+      width: calc((100%) / ${itemsPerRow});
+      max-width: 568px;
       height: 250px;
 
       @media screen and (max-width: 768px) {
@@ -53,7 +53,7 @@ const PageSection = props => {
                 <ContentBlock key={item._key}>
                   <Card>
                     <h4 style={{fontFamily: `'Lato', sans-serif`, fontSize: '1.25rem', margin: 0}}>{item.docItem[0].title}</h4>
-                    <PortableText blocks={item.docItem[0]._rawDescription}></PortableText>
+                    <PortableText style={{maxWidth: 960}} blocks={item.docItem[0]._rawDescription}></PortableText>
                   </Card>
                 </ContentBlock>
               ))
