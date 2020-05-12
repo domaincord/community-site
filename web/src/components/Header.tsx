@@ -10,6 +10,7 @@ interface MenuModel {
   _key: string
   path: string
   title: string
+  isInternal: boolean
 }
 
 interface HeaderModel {
@@ -50,9 +51,15 @@ const Header = ({ showDrawer, hideDrawer, isDrawerOpen, siteTitle, menu }: Heade
             <Logo siteTitle={siteTitle} />
             { !isDrawerOpen ? <nav>
               { menu.map(link => (
-                <NavLink key={link._key} to={link.path}>
+                link.isInternal
+                  ? (
+                    <NavLink key={link._key} to={link.path}>
                   {link.title}
                 </NavLink>
+                  )
+                  : (<a key={link._key} href={link.path}>
+                  {link.title}
+                </a>)
               )) }
             </nav> : null }
           </BrandWrap>

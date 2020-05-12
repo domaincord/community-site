@@ -13,6 +13,7 @@ const query = graphql`
       primaryMenu {
         path
         title
+        isInternal
         _key
       }
     }

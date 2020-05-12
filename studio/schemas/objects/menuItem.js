@@ -16,6 +16,11 @@ export default {
         Rule.uri({
           allowRelative: true
         })
+    },
+    {
+      name: 'isInternal',
+      type: 'boolean',
+      title: 'Is Internal Link?'
     }
   ]
 }
