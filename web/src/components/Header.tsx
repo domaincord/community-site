@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import Logo from './Logo'
 import Wrapper from './Wrapper'
 import DiscordButton from './DiscordButton'
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
 interface MenuModel {
   _key: string
@@ -31,7 +32,18 @@ const Header = ({ showDrawer, hideDrawer, isDrawerOpen, siteTitle, menu }: Heade
     }
   }
 
-  const NavLink = styled(Link)`
+  const InternalLink = styled(Link)`
+    text-decoration: none;
+    color: white;
+    padding: ${ !isDrawerOpen ? '15px 20px' : '12px'};
+    ${ isDrawerOpen ? {width: '100%'} : null }
+
+    &:hover {
+      color: #778ad4;
+    }
+  `
+
+  const ExternalLink = styled(OutboundLink)`
     text-decoration: none;
     color: white;
     padding: ${ !isDrawerOpen ? '15px 20px' : '12px'};
@@ -52,14 +64,12 @@ const Header = ({ showDrawer, hideDrawer, isDrawerOpen, siteTitle, menu }: Heade
             { !isDrawerOpen ? <nav>
               { menu.map(link => (
                 link.isInternal
-                  ? (
-                    <NavLink key={link._key} to={link.path}>
-                  {link.title}
-                </NavLink>
-                  )
-                  : (<a key={link._key} href={link.path}>
-                  {link.title}
-                </a>)
+                  ? (<InternalLink key={link._key} to={link.path}>
+                      {link.title}
+                    </InternalLink>)
+                  : (<ExternalLink key={link._key} href={link.path}>
+                      {link.title}
+                    </ExternalLink>)
               )) }
             </nav> : null }
           </BrandWrap>
