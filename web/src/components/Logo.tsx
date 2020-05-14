@@ -31,7 +31,7 @@ const Logo = ({ siteTitle, showWordMark = false }: LogoModel) => (
           }}
         />
         {showWordMark && siteTitle ? (
-          <h1 style={{ marginRight: 15, color: 'white' }}>{siteTitle}</h1>
+          <span style={{ marginRight: 15, color: 'white', fontWeight: 'bold', fontSize: '1.5rem', fontFamily: `'Lovelo', sans-serif`, textTransform: 'uppercase', transform: `translateY(3px)` }}>{siteTitle}</span>
         ) : null}
       </StyledLink>
     )}

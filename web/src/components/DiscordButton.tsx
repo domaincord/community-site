@@ -21,7 +21,7 @@ const DiscordButton = ({style}: DiscordButtonModel) => {
   }, [])
 
   return (
-    <Button href="/join" style={style}>
+    <Button title="Join the Discord server" href="/join" style={style}>
       <DiscordLogo />
       <TextGroup>
         <strong style={{ fontSize: 14 }}>Join the Discord</strong>

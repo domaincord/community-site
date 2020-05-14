@@ -1,10 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../layouts/'
-import PageSection from '../components/PageSection'
-import Hero from '../components/Hero'
+import PageSection from '../components/PageSection.tsx'
+import Hero from '../components/Hero.tsx'
 import PortableText from '../components/portableText'
-import Wrapper from '../components/Wrapper'
+import Wrapper from '../components/Wrapper.tsx'
 import SEO from '../components/seo'
 
 const Page = ({ data }) => {
@@ -18,13 +18,8 @@ const Page = ({ data }) => {
     media: page.heroMedia,
     mediaPosition: page.heroMediaPosition,
     cta: page.heroCta,
-    background: page.heroBgImage
-      ? {
-          backgroundImage: `url(${page.heroBgImage.asset.fluid.src})`
-        }
-      : {
-          backgroundColor: '#7316a3'
-        }
+    backgroundImage: page.heroBgImage.asset.fluid,
+    backgroundColor: '#7316a3'
   }
 
   return (
@@ -56,7 +51,7 @@ export const query = graphql`
       heroBgImage {
         asset {
           fluid(maxWidth: 2560) {
-            src
+            ...GatsbySanityImageFluid
           }
         }
       }
@@ -87,6 +82,7 @@ export const query = graphql`
         heading
         stickerPosition
         items {
+          _key
           title {
             current
           }

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Wrapper from './Wrapper'
 import DiscordButton from './DiscordButton'
+import BackgroundImage, { IFluidObject } from 'gatsby-background-image'
 
 interface HeroModel {
   extraClasses?: Array<String>
@@ -10,11 +11,17 @@ interface HeroModel {
   title: string
   description: string
   cta: object
-  background: object
+  backgroundImage: IFluidObject
+  backgroundColor: string
 }
 
-const Hero = ({title, description, media, mediaPosition, cta, background, extraClasses}: HeroModel) => (
-  <StyledHero id="hero" style={{...background}} className={extraClasses.join(' ')}>
+const Hero = ({title, description, media, mediaPosition, cta, backgroundImage, backgroundColor, extraClasses}: HeroModel) => (
+  <StyledHero id="hero"
+    Tag="section"
+    className={extraClasses.join(' ')}
+    fluid={backgroundImage}
+    backgroundColor={backgroundColor}
+  >
     <Wrapper>
       <p
         style={{
@@ -40,7 +47,7 @@ Hero.defaultProps = {
   extraClasses: [],
 } as Partial<HeroModel>
 
-const StyledHero = styled.div`
+const StyledHero = styled(BackgroundImage)`
   display: flex;
   width: 100%;
   height: 500px;

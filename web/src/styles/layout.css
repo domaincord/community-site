@@ -1,5 +1,10 @@
 @import './custom-properties.css';
 
+@font-face {
+  font-family: 'Lovelo';
+  src: url(/Lovelo-Black.ttf);
+}
+
 html {
   font-family: var(--font-family-sans);
   font-size: var(--font-base-size);

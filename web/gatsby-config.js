@@ -9,7 +9,7 @@ const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://domaincord.com/`
+    siteUrl: `https://domaincord.org/`
   },
   plugins: [
     {

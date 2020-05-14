@@ -60,14 +60,14 @@ const Header = ({ showDrawer, hideDrawer, isDrawerOpen, siteTitle, menu }: Heade
       <Wrapper>
         <NavWrap>
           <BrandWrap>
-            <Logo siteTitle={siteTitle} />
+            <Logo siteTitle={siteTitle} showWordMark={true} />
             { !isDrawerOpen ? <nav>
-              { menu.map(link => (
+              { menu.map((link, index) => (
                 link.isInternal
-                  ? (<InternalLink key={link._key} to={link.path}>
+                  ? (<InternalLink tabIndex={index} key={link._key} to={link.path}>
                       {link.title}
                     </InternalLink>)
-                  : (<ExternalLink key={link._key} href={link.path}>
+                  : (<ExternalLink tabIndex={index} key={link._key} href={link.path}>
                       {link.title}
                     </ExternalLink>)
               )) }
@@ -75,7 +75,7 @@ const Header = ({ showDrawer, hideDrawer, isDrawerOpen, siteTitle, menu }: Heade
           </BrandWrap>
           <ButtonGroup>
             <DiscordButton style={{ display: isDrawerOpen ? 'none' : 'block' }} />
-            <Button onClick={buttonClicked}>
+            <Button title="Toggle Menu" onClick={buttonClicked}>
               <Icon symbol="hamburger" />
             </Button>
           </ButtonGroup>
@@ -84,7 +84,7 @@ const Header = ({ showDrawer, hideDrawer, isDrawerOpen, siteTitle, menu }: Heade
     </StyledHeader>
     { isDrawerOpen ? (
         <Drawer>
-            <CloseButton onClick={buttonClicked}>Close Menu</CloseButton>
+            <CloseButton title="Close Menu" onClick={buttonClicked}>Close Menu</CloseButton>
             <nav>
             { menu.map(link => (
                 link.isInternal
