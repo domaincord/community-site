@@ -3,6 +3,7 @@
 @font-face {
   font-family: 'Lovelo';
   src: url(/Lovelo-Black.ttf);
+  font-display: swap;
 }
 
 html {
