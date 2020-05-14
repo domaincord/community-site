@@ -20,17 +20,6 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-segment-js`,
-      options: {
-        prodKey: `nHX9amYrAFkzHN23393smr7Zdi3GmwTh`,
-        devKey: ``,
-        trackPage: false,
-        host: ``,
-        delayLoad: true,
-        delayLoadTime: 1000
-      }
-    },
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/images/`,
