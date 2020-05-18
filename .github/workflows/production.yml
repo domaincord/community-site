@@ -31,9 +31,11 @@ jobs:
         uses: actions/download-artifact@master
         with:
           name: public
+      - name: Use Firebase Project
+        run: firebase use production
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
-          args: deploy --only hosting:org -P dncord-fb94e
+          args: deploy --only hosting:org
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
