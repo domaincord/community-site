@@ -19,13 +19,13 @@ jobs:
         if: github.ref == 'refs/heads/dev'
         with: 
           PROJECT_ID: 'dncord-beta'
-          BUILD_CMD: 'npm run build:staging'
+          BUILD_CMD: 'cd web && npm run build:staging'
       - name: set production environment variables
         uses: allenevans/set-env@v1.1.0
         if: github.ref == 'refs/heads/master'
         with: 
           PROJECT_ID: 'dncord-fb94e'
-          BUILD_CMD: 'npm run build'
+          BUILD_CMD: 'cd web && npm run build'
       - name: Build
         run: ${BUILD_CMD}
       - name: Archive Production Artifact
