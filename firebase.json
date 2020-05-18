@@ -1,0 +1,18 @@
+{
+  "emulators": {
+    "firestore": {
+      "port": 8080
+    }
+  },
+  "hosting": [
+    {
+      "public": "web/public",
+      "target": "org",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ]
+    }
+  ]
+}

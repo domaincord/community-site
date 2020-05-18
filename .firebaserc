@@ -1,0 +1,22 @@
+{
+  "projects": {
+    "production": "dncord-fb94e",
+    "staging": "dncord-beta"
+  },
+  "targets": {
+    "dncord-fb94e": {
+      "hosting": {
+        "org": [
+          "dncord-org"
+        ]
+      }
+    },
+    "dncord-beta": {
+      "hosting": {
+        "org": [
+          "dncord-org-beta"
+        ]
+      }
+    }
+  }
+}
