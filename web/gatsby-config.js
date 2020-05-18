@@ -40,6 +40,25 @@ module.exports = {
         overlayDrafts: !isProd
       }
     },
-    'gatsby-plugin-sitemap'
+    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://domaincord.org',
+        sitemap: 'https://domaincord.org/sitemap.xml',
+        resolveEnv: () => process.env.GATSBY_ENV,
+        env: {
+          development: {
+            policy: [{ userAgent: '*', disallow: ['/'] }]
+          },
+          production: {
+            policy: [{ userAgent: '*', allow: '/' }]
+          },
+          staging: {
+            policy: [{ userAgent: '*', disallow: ['/'] }]
+          }
+        }
+      }
+    }
   ]
 }
