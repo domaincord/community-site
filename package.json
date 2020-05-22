@@ -4,7 +4,7 @@
   "version": "1.0.3",
   "author": "Sanity <hello@sanity.io>",
   "scripts": {
-    "build": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
+    "build": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build",
     "build:staging": "GATSBY_ENV=staging gatsby build",
     "clean": "gatsby clean",
     "start": "npm run clean && gatsby develop",
