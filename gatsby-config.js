@@ -2,7 +2,7 @@
 require('dotenv').config()
 const clientConfig = require('./client-config')
 
-const isProd = process.env.GATSBY_ENV === 'production'
+const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
   siteMetadata: {
