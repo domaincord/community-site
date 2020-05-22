@@ -2,6 +2,9 @@
   NODE_VERSION = "12"
   NPM_VERSION = "6"
 
+[[plugins]]
+  package = "netlify-plugin-gatsby-cache"
+
 [[redirects]]
   from = "/join"
   to = "https://discord.gg/239EP7G"
