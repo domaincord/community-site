@@ -1,11 +1,8 @@
 // Load variables from `.env` as soon as possible
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV || 'development'}`
-})
-
+require('dotenv').config()
 const clientConfig = require('./client-config')
 
-const isProd = process.env.NODE_ENV === 'production'
+const isProd = process.env.GATSBY_ENV === 'production'
 
 module.exports = {
   siteMetadata: {
